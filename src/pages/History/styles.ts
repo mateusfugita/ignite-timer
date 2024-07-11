@@ -25,7 +25,7 @@ export const HistoryList = styled.div`
     th {
       background-color: ${(props) => props.theme['gray-600']};
       padding: 1rem;
-      text-align: center;
+      text-align: left;
       color: ${(props) => props.theme['gray-100']};
       font-size: 0%.875rem;
       line-height: 1.6;
@@ -69,7 +69,7 @@ const STATUS_COLORS = {
 
 // Dynamically get key values from STATUS_COLORS (typeof is needed becasue TS can't read JS objects directly, only types)
 interface StatusProps {
-  statusColor: keyof typeof STATUS_COLORS
+  $statusColor: keyof typeof STATUS_COLORS
 }
 
 export const Status = styled.span<StatusProps>`
@@ -82,6 +82,6 @@ export const Status = styled.span<StatusProps>`
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 9999px;
-    background: ${(props) => props.theme[STATUS_COLORS[props.statusColor]]};
+    background: ${(props) => props.theme[STATUS_COLORS[props.$statusColor]]};
   }
 `
